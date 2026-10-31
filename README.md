@@ -8,6 +8,9 @@ Application web fullstack conçue pour les pilotes de simulation aérienne utili
 * **Back-End :** Java 21, Spring Boot, Spring Data JDBC (Maven)
 * **Base de Données :** MariaDB / MySQL
 * **Méthodologie & DevOps :** Agile (Kanban & Issues GitHub), Git, Docker & Kubernetes.
+* **Kanban & Issues GitHub :** [kanban](https://github.com/SAULAS-Enzo/FlightManager---Application-Web)
+* **Reposirory GutHub :** [GitHub](https://github.com/SAULAS-Enzo/FlightManager---Application-Web.git)
+* **IVAO France :** [IVAO] (https://www.ivao.fr/fr)
 
 ## 📁 Architecture du Projet
 
