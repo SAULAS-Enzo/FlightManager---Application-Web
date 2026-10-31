@@ -10,7 +10,7 @@ Application web fullstack conçue pour les pilotes de simulation aérienne utili
 * **Méthodologie & DevOps :** Agile (Kanban & Issues GitHub), Git, Docker & Kubernetes.
 * **Kanban & Issues GitHub :** [kanban](https://github.com/SAULAS-Enzo/FlightManager---Application-Web)
 * **Reposirory GutHub :** [GitHub](https://github.com/SAULAS-Enzo/FlightManager---Application-Web.git)
-* **IVAO France :** [IVAO] (https://www.ivao.fr/fr)
+* **IVAO France :** [IVAO](https://www.ivao.fr/fr)
 
 ## 📁 Architecture du Projet
 
