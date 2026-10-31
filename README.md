@@ -2,8 +2,6 @@
 
 Application web fullstack conçue pour les pilotes de simulation aérienne utilisant le réseau **IVAO**, développée dans le cadre du **BUT Informatique**.
 
----
-
 ## 🛠️ Stack Technique
 
 * **Front-End :** React.js, HTML5, CSS3, JavaScript ES6+ (NPM)
@@ -11,13 +9,14 @@ Application web fullstack conçue pour les pilotes de simulation aérienne utili
 * **Base de Données :** MariaDB / MySQL
 * **Méthodologie & DevOps :** Agile (Kanban & Issues GitHub), Git, Docker & Kubernetes.
 
----
-
 ## 📁 Architecture du Projet
 
-```text
+```
 FlightManager---Application-Web/
 ├── backend/            # Projet Spring Boot (API REST Java 21)
+│   ├── sql/            # Scripts SQL (Création des tables, jeux de données)
+│   │   ├── schema.sql
+│   │   └── data.sql
 │   ├── src/main/java   # Code source Java (Controller, DTO, Model, Repository, Service)
 │   ├── src/main/resources # Configuration (application.properties, templates, static)
 │   ├── pom.xml         # Configuration Maven & Dépendances
@@ -31,26 +30,34 @@ FlightManager---Application-Web/
 └── README.md
 ```
 
----
-
 ## ⚙️ Prérequis
 
 Assurez-vous d'avoir installé sur votre environnement :
+
 * **Java JDK 21** (déclaré dans le `JAVA_HOME` et sélectionné via `alternatives` sous Linux/Fedora)
 * **Apache Maven 3.8+** (pour le build et le lancement du Back-End)
 * **Node.js 18+ & NPM** (pour le Front-End)
 * **MariaDB** (serveur local ou conteneur Docker)
 
----
-
 ## 🚀 Guide d'Installation et de Configuration
 
 ### 1. Configuration de la Base de Données (MariaDB)
 
-Connectez-vous à votre serveur MariaDB et exécutez la commande SQL suivante pour créer la base de données :
+Connectez-vous à votre serveur MariaDB pour créer la base de données et exécuter vos scripts d'initialisation :
+
+```bash
+# Se connecter à MariaDB
+mysql -u root -p
+```
 
 ```sql
+-- Créer la base de données
 CREATE DATABASE IF NOT EXISTS flightmanager;
+USE flightmanager;
+
+-- Exécuter les scripts de création et d'insertion
+SOURCE backend/sql/01_create_tables.sql;
+SOURCE backend/sql/02_insert_data.sql;
 ```
 
 ### 2. Configuration du Back-End (Spring Boot)
@@ -71,16 +78,13 @@ spring.datasource.username=root
 spring.datasource.password=votre_mot_de_passe
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 
-# ----- Initialization & Logging -----
-spring.sql.init.mode=always
+# ----- Logging & Debug -----
 logging.level.fr.univ.orleans.saulas.flightmanager=DEBUG
 
 # ----- OpenAPI / Swagger -----
 springdoc.api-docs.path=/api-docs
 springdoc.swagger-ui.path=/swagger-ui.html
 ```
-
----
 
 ## 🖥️ Commandes de Lancement
 
@@ -100,8 +104,6 @@ Depuis le répertoire `backend/` :
   *L'API REST est accessible sur `http://localhost:8080`.*  
   *La documentation Swagger UI est disponible sur `http://localhost:8080/swagger-ui.html`.*
 
----
-
 ### Front-End (React / NPM)
 
 Ouvrez un second terminal et naviguez dans le répertoire `frontend/` :
@@ -117,20 +119,16 @@ Ouvrez un second terminal et naviguez dans le répertoire `frontend/` :
   ```
   *L'interface web est accessible sur `http://localhost:5173`.*
 
----
-
 ## 🧪 Synthèse des Commandes Utiles
 
-| Composant | Action | Commande |
-| :--- | :--- | :--- |
-| **Back-End** | Nettoyer et compiler le projet | `mvn clean install` |
-| **Back-End** | Lancer l'API Spring Boot | `mvn spring-boot:run` |
-| **Back-End** | Exécuter uniquement les tests | `mvn test` |
-| **Front-End** | Installer les paquets Node | `npm install` |
-| **Front-End** | Lancer l'application React | `npm run dev` |
-| **Front-End** | Générer le build de production | `npm run build` |
-
----
+| Composant | Action | Commande | 
+| ----- | ----- | ----- | 
+| **Back-End** | Nettoyer et compiler le projet | `mvn clean install` | 
+| **Back-End** | Lancer l'API Spring Boot | `mvn spring-boot:run` | 
+| **Back-End** | Exécuter uniquement les tests | `mvn test` | 
+| **Front-End** | Installer les paquets Node | `npm install` | 
+| **Front-End** | Lancer l'application React | `npm run dev` | 
+| **Front-End** | Générer le build de production | `npm run build` | 
 
 ## 🧑‍💻 Équipe et Contact
 
