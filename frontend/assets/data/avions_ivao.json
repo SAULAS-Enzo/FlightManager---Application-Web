@@ -1,0 +1,345 @@
+[
+  {
+    "id": "DR40",
+    "nom": "Robin DR400",
+    "icao_type": "DR40",
+    "turbulence": "L",
+    "equipement_icao": "SDG",
+    "transpondeur_icao": "S",
+    "pbn": null,
+    "remarques": "AVGAS uniquement. VFR/IFR possible selon équipement embarqué.",
+    "vitesses": {
+      "croisiere_kt": 130,
+      "format_ivao": "N0130",
+      "vne_kt": 166,
+      "vno_kt": 140,
+      "va_kt": 116,
+      "vfe_kt": 92
+    },
+    "masses": {
+      "max_decollage_kg": 910,
+      "max_atterrissage_kg": 910
+    },
+    "altitude": {
+      "plafond_ft": 14800,
+      "croisiere_fl": 95,
+      "format_ivao": "F095"
+    },
+    "carburant": {
+      "type": "AVGAS",
+      "unite": "L",
+      "qte_max": 110
+    },
+    "moteur": {
+      "type": "piston",
+      "nombre": 1
+    }
+  },
+  {
+    "id": "C172",
+    "nom": "Cessna 172",
+    "icao_type": "C172",
+    "turbulence": "L",
+    "equipement_icao": "SDFG",
+    "transpondeur_icao": "S",
+    "pbn": null,
+    "remarques": "Avion école très répandu. AVGAS. Pas de RVSM.",
+    "vitesses": {
+      "croisiere_kt": 110,
+      "format_ivao": "N0110",
+      "vne_kt": 163,
+      "vno_kt": 129,
+      "va_kt": 105,
+      "vfe_kt": 85
+    },
+    "masses": {
+      "max_decollage_kg": 1111,
+      "max_atterrissage_kg": 1111
+    },
+    "altitude": {
+      "plafond_ft": 14000,
+      "croisiere_fl": 85,
+      "format_ivao": "F085"
+    },
+    "carburant": {
+      "type": "AVGAS",
+      "unite": "L",
+      "qte_max": 212
+    },
+    "moteur": {
+      "type": "piston",
+      "nombre": 1
+    }
+  },
+  {
+    "id": "BE58",
+    "nom": "Beechcraft Baron 58",
+    "icao_type": "BE58",
+    "turbulence": "L",
+    "equipement_icao": "SDFG",
+    "transpondeur_icao": "S",
+    "pbn": null,
+    "remarques": "Bimoteur piston léger. AVGAS. Pas de RVSM. Souvent utilisé en vol IFR privé.",
+    "vitesses": {
+      "croisiere_kt": 200,
+      "format_ivao": "N0200",
+      "vne_kt": 223,
+      "vno_kt": 195,
+      "va_kt": 156
+    },
+    "masses": {
+      "max_decollage_kg": 2449,
+      "max_atterrissage_kg": 2449
+    },
+    "altitude": {
+      "plafond_ft": 20000,
+      "croisiere_fl": 175,
+      "format_ivao": "F175"
+    },
+    "carburant": {
+      "type": "AVGAS",
+      "unite": "L",
+      "qte_max": 416
+    },
+    "moteur": {
+      "type": "piston",
+      "nombre": 2
+    }
+  },
+  {
+    "id": "BE9L",
+    "nom": "Beechcraft King Air C90B",
+    "icao_type": "BE9L",
+    "turbulence": "L",
+    "equipement_icao": "SDFGR",
+    "transpondeur_icao": "S",
+    "pbn": ["B2", "C2", "D2", "S1"],
+    "remarques": "PBN/B2C2D2S1 — Approuvé RNAV. MTOW < 7000 kg : catégorie L.",
+    "vitesses": {
+      "croisiere_kt": 200,
+      "format_ivao": "N0200",
+      "vmo_kt": 226
+    },
+    "masses": {
+      "max_decollage_kg": 4581,
+      "max_atterrissage_kg": 4354
+    },
+    "altitude": {
+      "plafond_ft": 25000,
+      "croisiere_fl": 230,
+      "format_ivao": "F230"
+    },
+    "carburant": {
+      "type": "JET-A1",
+      "unite": "kg",
+      "qte_max": 1244
+    },
+    "moteur": {
+      "type": "turbopropulseur",
+      "nombre": 2
+    }
+  },
+  {
+    "id": "EC35",
+    "nom": "Airbus Helicopters EC135",
+    "icao_type": "EC35",
+    "turbulence": "L",
+    "equipement_icao": "SDFG",
+    "transpondeur_icao": "S",
+    "pbn": null,
+    "remarques": "Hélicoptère bimoteur. Utilisé SMUH, formation, sécurité civile. Vol IFR possible.",
+    "vitesses": {
+      "croisiere_kt": 130,
+      "format_ivao": "N0130",
+      "vne_kt": 150
+    },
+    "masses": {
+      "max_decollage_kg": 2910,
+      "max_atterrissage_kg": 2910
+    },
+    "altitude": {
+      "plafond_ft": 20000,
+      "croisiere_fl": 100,
+      "format_ivao": "F100"
+    },
+    "carburant": {
+      "type": "JET-A1",
+      "unite": "kg",
+      "qte_max": 620
+    },
+    "moteur": {
+      "type": "turbomoteur",
+      "nombre": 2
+    }
+  },
+  {
+    "id": "DH8D",
+    "nom": "Bombardier Dash 8 Q400",
+    "icao_type": "DH8D",
+    "turbulence": "M",
+    "equipement_icao": "SDFGRY",
+    "transpondeur_icao": "SB1",
+    "pbn": ["B2", "C2", "D2", "S1", "S2"],
+    "remarques": "PBN/B2C2D2S1S2 — Turbopropulseur régional. Plafond FL250 : pas de RVSM nécessaire. ADS-B out (1090 MHz ES).",
+    "vitesses": {
+      "croisiere_kt": 360,
+      "format_ivao": "N0360",
+      "vmo_kt": 402
+    },
+    "masses": {
+      "max_decollage_kg": 29257,
+      "max_atterrissage_kg": 28009
+    },
+    "altitude": {
+      "plafond_ft": 25000,
+      "croisiere_fl": 250,
+      "format_ivao": "F250"
+    },
+    "carburant": {
+      "type": "JET-A1",
+      "unite": "kg",
+      "qte_max": 6288
+    },
+    "moteur": {
+      "type": "turbopropulseur",
+      "nombre": 2
+    }
+  },
+  {
+    "id": "B738",
+    "nom": "Boeing 737-800",
+    "icao_type": "B738",
+    "turbulence": "M",
+    "equipement_icao": "SDFGORWY",
+    "transpondeur_icao": "SHB1",
+    "pbn": ["B1", "B2", "C2", "C3", "D2", "D3", "L1", "O1", "O2", "S1", "S2"],
+    "remarques": "PBN/B1B2C2C3D2D3L1O1O2S1S2 — RVSM approuvé (W). 8,33 kHz (Y). ADS-B out. Mode S amélioré (H).",
+    "vitesses": {
+      "croisiere_mach": 0.78,
+      "croisiere_kt": 450,
+      "format_ivao": "M078",
+      "vmo_kt": 340,
+      "mmo": 0.82
+    },
+    "masses": {
+      "max_decollage_kg": 79016,
+      "max_atterrissage_kg": 66361
+    },
+    "altitude": {
+      "plafond_ft": 41000,
+      "croisiere_fl": 370,
+      "format_ivao": "F370"
+    },
+    "carburant": {
+      "type": "JET-A1",
+      "unite": "kg",
+      "qte_max": 20894
+    },
+    "moteur": {
+      "type": "turboreacteur",
+      "nombre": 2
+    }
+  },
+  {
+    "id": "B744",
+    "nom": "Boeing 747-400",
+    "icao_type": "B744",
+    "turbulence": "H",
+    "equipement_icao": "SDFGORWY",
+    "transpondeur_icao": "SHB1",
+    "pbn": ["B1", "B2", "C2", "C3", "D2", "D3", "L1", "O1", "O2", "S1", "S2"],
+    "remarques": "PBN/B1B2C2C3D2D3L1O1O2S1S2 — RVSM (W). 8,33 kHz (Y). Catégorie de sillage HEAVY (H). ADS-B out. Mode S amélioré.",
+    "vitesses": {
+      "croisiere_mach": 0.85,
+      "croisiere_kt": 490,
+      "format_ivao": "M085",
+      "vmo_kt": 365,
+      "mmo": 0.92
+    },
+    "masses": {
+      "max_decollage_kg": 412775,
+      "max_atterrissage_kg": 295742
+    },
+    "altitude": {
+      "plafond_ft": 43100,
+      "croisiere_fl": 390,
+      "format_ivao": "F390"
+    },
+    "carburant": {
+      "type": "JET-A1",
+      "unite": "kg",
+      "qte_max": 158831
+    },
+    "moteur": {
+      "type": "turboreacteur",
+      "nombre": 4
+    }
+  },
+  {
+    "id": "RFAL",
+    "nom": "Dassault Rafale C",
+    "icao_type": "RFAL",
+    "turbulence": "M",
+    "equipement_icao": "SG",
+    "transpondeur_icao": "S",
+    "pbn": null,
+    "remarques": "Aéronef militaire. Pas de RVSM civil. Equipe d'un système IFF militaire. Vitesse supersonique possible (Mach 1.8).",
+    "vitesses": {
+      "croisiere_mach": 0.9,
+      "croisiere_kt": 530,
+      "format_ivao": "M090",
+      "vmax_mach": 1.8
+    },
+    "masses": {
+      "max_decollage_kg": 24500,
+      "max_atterrissage_kg": 22000
+    },
+    "altitude": {
+      "plafond_ft": 50000,
+      "croisiere_fl": 430,
+      "format_ivao": "F430"
+    },
+    "carburant": {
+      "type": "JET-A1",
+      "unite": "kg",
+      "qte_max": 4700
+    },
+    "moteur": {
+      "type": "turboreacteur",
+      "nombre": 2
+    }
+  },
+  {
+    "id": "AJET",
+    "nom": "Dassault / Dornier Alpha Jet",
+    "icao_type": "AJET",
+    "turbulence": "M",
+    "equipement_icao": "SD",
+    "transpondeur_icao": "S",
+    "pbn": null,
+    "remarques": "Avion d'entraînement et d'appui militaire. MTOW > 7000 kg : catégorie M. Pas de GPS/GNSS ni RVSM civil.",
+    "vitesses": {
+      "croisiere_kt": 350,
+      "format_ivao": "N0350",
+      "vmax_kt": 521
+    },
+    "masses": {
+      "max_decollage_kg": 8000,
+      "max_atterrissage_kg": 7200
+    },
+    "altitude": {
+      "plafond_ft": 48000,
+      "croisiere_fl": 370,
+      "format_ivao": "F370"
+    },
+    "carburant": {
+      "type": "JET-A1",
+      "unite": "kg",
+      "qte_max": 1900
+    },
+    "moteur": {
+      "type": "turboreacteur",
+      "nombre": 2
+    }
+  }
+]
