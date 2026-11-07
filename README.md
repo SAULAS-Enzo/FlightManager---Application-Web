@@ -122,6 +122,16 @@ Ouvrez un second terminal et naviguez dans le répertoire `frontend/` :
   ```
   *L'interface web est accessible sur `http://localhost:5173`.*
 
+* **Créer la version finale optimisée du site :**
+ ```bash
+ npm run build
+ ```
+
+* **Tester la version buildée localement :**
+ ```bash
+ npm run preview
+ ```
+
 ## 🧪 Synthèse des Commandes Utiles
 
 | Composant | Action | Commande | 
