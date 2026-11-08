@@ -1,0 +1,46 @@
+
+body{
+    /*Propriétés du fond d'écran*/
+    background-image: url("../../assets/fonts/main_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    /*Propriétés du des éléments textuels*/
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F0EDE6;
+    font-size: 1em;
+
+    /*Mise ne page des composants header, main et footer*/
+    margin: 0;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+header h1{
+    font-size: 3em;
+    color: #F0EDE6;  
+}
+
+header img {
+    height: 100px;
+    width: auto;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-around;
+}
+footer a {
+    color: #F0EDE6;
+}
+

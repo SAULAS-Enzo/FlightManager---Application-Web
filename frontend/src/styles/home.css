@@ -1,0 +1,15 @@
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+article>h1{
+    font-size: 2em;
+    color: #E8A245;
+}
+
+article {
+    background-color: #0E0E1480;
+    border-radius: 10%;
+    padding: 1% 5%;
+}
