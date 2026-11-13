@@ -1,26 +1,9 @@
 import '../styles/home.css';
 
-const setTab = (tab) => {
-    switch(tab){
-        case "operationnel":
-            return null;
-
-        case "encyclopedie":
-            return null;
-
-        case "quizz":
-            return null;
-
-        default:
-            return null;
-    }
-        
-}
-
-export function Operationnel()
+function Operationnel()
 {
     return (
-        <button type="button" class="article-button" onclick={setTab("operationnel")}>
+        <button type="button" class="article-button">
             <article>
                 <h1>OPERATIONNEL</h1>
                 <img src="../assets/img/icons/aeroport2.png"/>
@@ -42,10 +25,10 @@ export function Operationnel()
     );
 }
 
-export function Encyclopedie()
+function Encyclopedie()
 {
     return (
-        <button type="button" class="article-button" onclick={setTab("encyclopedie")}>
+        <button type="button" class="article-button">
             <article>
                 <h1>ENCYPLOPEDIE</h1>
                 <img src="../assets/img/icons/reserver-un-avion.png"/>
@@ -63,10 +46,10 @@ export function Encyclopedie()
     );
 }
 
-export function Quizz()
+function Quizz()
 {
     return (
-        <button type="button" class="article-button" onclick={setTab("quizz")}>
+        <button type="button" class="article-button">
             <article>
                 <h1>QUIZZ</h1>
                 <img src="../assets/img/icons/passeport.png"/>
