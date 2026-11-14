@@ -22,9 +22,7 @@ function Operationnel()
                     <li>Communication avec les ATC</li>
                     <li>Informations météorologiques actuelles</li>
                     <li>Route à suivre & radiocommunications</li>
-                    <li>Calculateur</li>
-                    <li>Cartes VAC</li>
-                    <li>Mes documents propres à mon avions</li>
+                    <li>Et encore d'autres informations à importer</li>
                 </ul>
             </article>
         </button>
