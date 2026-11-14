@@ -1,0 +1,142 @@
+/* ==========================
+   GLOBAL
+========================== */
+
+body{
+    background-image: url("../../assets/fonts/main_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #F0EDE6;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    margin: 0;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Assombrit légèrement le fond */
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 3rem;
+
+    background: rgba(14,14,20,0.50);
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+header > div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header h1{
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #F0EDE6;
+    text-transform: uppercase;
+}
+
+header img{
+    height: 80px;
+    width: auto;
+}
+
+header p{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 3rem;
+
+    background: rgba(14,14,20,0.75);
+    backdrop-filter: blur(8px);
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+footer p{
+    margin: 0;
+}
+
+footer a{
+    color: #E8A245;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer a:hover{
+    color: #FFD28B;
+    text-decoration: underline;
+}
+
+/* ==========================
+   BONTON DE CONNECTION
+========================== */
+
+.user-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    color: #F0EDE6;
+    font-size: 1rem;
+    font-weight: 600;
+
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-button img {
+    width: 32px;
+    height: 32px;
+}
+
+.user-button:hover {
+    background: rgba(232,162,69,0.2);
+    border-color: #E8A245;
+    transform: translateY(-2px);
+}
+
+.user-button:active {
+    transform: translateY(0);
+}

@@ -1,0 +1,77 @@
+/* Conteneur principal */
+main {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Boutons */
+.article-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 350px;
+}
+
+/* Cartes */
+article {
+    background: rgba(14, 14, 20, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation de survol */
+.article-button:hover article {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(232, 162, 69, 0.25);
+    border-color: #E8A245;
+}
+
+/* Titres */
+article h1 {
+    font-size: 2rem;
+    color: #E8A245;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+article h2 {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Image */
+article img {
+    display: block;
+    margin: auto;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+/* Texte */
+article p,
+article li {
+    color: #dddddd;
+    line-height: 1.6;
+}
+
+/* Liste */
+article ul {
+    padding-left: 1.2rem;
+}
+
+article li {
+    margin-bottom: 0.5rem;
+}
