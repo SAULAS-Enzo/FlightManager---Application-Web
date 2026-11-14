@@ -1,9 +1,16 @@
 import '../styles/home.css';
+import { useNavigate } from 'react-router-dom';
 
 function Operationnel()
 {
+    const navigate = useNavigate();
+
     return (
-        <button type="button" class="article-button">
+        <button 
+          type="button" 
+          className="article-button" 
+          onClick={() => navigate('/operationnel')}
+        >
             <article>
                 <h1>OPERATIONNEL</h1>
                 <img src="../assets/img/icons/aeroport2.png"/>
@@ -27,8 +34,14 @@ function Operationnel()
 
 function Encyclopedie()
 {
+    const navigate = useNavigate();
+
     return (
-        <button type="button" class="article-button">
+        <button 
+          type="button" 
+          className="article-button" 
+          onClick={() => navigate('/encyclopedie')}
+        >
             <article>
                 <h1>ENCYPLOPEDIE</h1>
                 <img src="../assets/img/icons/reserver-un-avion.png"/>
@@ -48,8 +61,14 @@ function Encyclopedie()
 
 function Quizz()
 {
+    const navigate = useNavigate();
+
     return (
-        <button type="button" class="article-button">
+        <button 
+          type="button" 
+          class="article-button" 
+          onClick={() => navigate('/quizz')}
+        >
             <article>
                 <h1>QUIZZ</h1>
                 <img src="../assets/img/icons/passeport.png"/>
