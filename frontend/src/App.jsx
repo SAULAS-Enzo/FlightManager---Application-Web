@@ -5,6 +5,7 @@ import Header from './components/header'
 import Footer from './components/footer'
 import EncyclopedieHome from './pages/encyclopedie/EncyclopedieHome';
 import Resgister from './pages/inscription/Register';
+import Connexion from './pages/utilisateur/Connexion';
 
 function App() {
   return (
@@ -13,11 +14,15 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/home' element={<Home/>}/>
+        
+        <Route path='/connexion' element={<Connexion/>}/>
+        <Route path='/inscription' element={<Home/>}/>
+        <Route path='/profile' element={<Home/>}/>
+
         <Route path='/encyclopedie' element={<EncyclopedieHome/>}/>
-        <Route path='/register' element={<Resgister/>}/>
         <Route path='/operationnel' element={<Home/>}/>
         <Route path='/quizz' element={<Home/>}/>
-        <Route path='/profile' element={<Home/>}/>
+        
       </Routes>
       <Footer/>
     </Router>

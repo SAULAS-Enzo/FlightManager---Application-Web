@@ -23,7 +23,7 @@ export default function Header()
             </button>
         
             <div>
-                <button type="button" class="user-button" onclick={""}>
+                <button type="button" class="user-button" onClick={() => navigate('/connexion')}>
                     <img src="../assets/img/icons/utilisateur.png" alt=""/>
                     <p>{user}</p>
                 </button>
