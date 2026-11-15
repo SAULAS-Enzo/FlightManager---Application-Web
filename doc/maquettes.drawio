@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="10">
     <diagram id="GzmlXXxs2f1U3R7nJhTO" name="Couleurs">
-        <mxGraphModel dx="851" dy="1820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="850" dy="808" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -29,7 +29,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="qLJH59yfEq2ztwdIbEwE" name="Relations pages">
-        <mxGraphModel dx="8658" dy="5143" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="8667" dy="6663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -361,7 +361,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="c9db0220-8083-56f3-ca83-edcdcd058819" name="home">
-        <mxGraphModel dx="2850" dy="1183" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="826" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="2496" dy="1864" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="826" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0" style=";html=1;"/>
                 <mxCell id="1" parent="0" style=";html=1;"/>
