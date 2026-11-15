@@ -9,6 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 
 import fr.univ.orleans.saulas.flightmanager.service.UtilisateurService;
@@ -42,21 +45,34 @@ public class SecurityConfig {
             .authenticationProvider(authenticationProvider)
             .formLogin(httpForm -> {
                 httpForm
-                    .loginPage("/login")
-                    .loginProcessingUrl("/req/login")
+                    .loginPage("/connexion")
+                    .loginProcessingUrl("/req/connexion")
+                    .usernameParameter("nomUtilisateur")
+                    .passwordParameter("motDePasse")
+                    .successHandler((request, response, authentication) -> {
+                        response.setStatus(HttpStatus.OK.value());
+                        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+                        response.getWriter().write("{\"message\":\"Connexion réussie.\"}");
+                    })
+                    .failureHandler((request, response, exception) -> {
+                        response.setStatus(HttpStatus.UNAUTHORIZED.value());
+                        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+                        response.getWriter().write("{\"message\":\"Nom d'utilisateur ou mot de passe invalide.\"}");
+                    })
                     .permitAll();
-                httpForm.defaultSuccessUrl("/index", true);
             })
+            .exceptionHandling(exception -> exception
+                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
             .authorizeHttpRequests(registry -> {
                 registry.requestMatchers(
-                    "/login",
-                    "/req/login",
-                    "/req/signup",
+                    "/connexion",
+                    "/inscription",
+                    "/req/connexion",
+                    "/req/inscription",
                     "/css/**",
                     "/js/**",
                     "/images/**"
                 ).permitAll();
-
                 registry.anyRequest().authenticated();
             })
             .build();

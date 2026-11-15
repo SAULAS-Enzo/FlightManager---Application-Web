@@ -11,5 +11,6 @@ import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>
 {
     Optional<Utilisateur> findByNomUtilisateur(String nom);
+    Optional<Utilisateur> findByAdresseMail(String adresseMail);
     
 }
