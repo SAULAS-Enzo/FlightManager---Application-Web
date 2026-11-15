@@ -7,20 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller 
 public class ContentController 
 {
-    @GetMapping("/login")
-    public String login() {
-        return "login";
+    @GetMapping("/connexion")
+    public String connexion() {
+        return "connexion";
     }
 
-    @GetMapping("/req/signup")
-    public String signup() {
-        return "signup";
+    @GetMapping("/req/inscription")
+    public String inscription() {
+        return "inscription";
     }
 
-    @GetMapping("/index")
-    public String home() {
-        return "index";
+    @GetMapping("/profile")
+    public String profileUtilisateur() {
+        return "profile";
     }
-    
-    
+
 }
