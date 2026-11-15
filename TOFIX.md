@@ -1,0 +1,2 @@
+- le footer qui ne touche pas le bord du bas de la fenêtre
+- diminuer la hauteur du footer
