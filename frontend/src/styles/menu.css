@@ -1,0 +1,86 @@
+/* ==========================
+   MENU LATERAL (ENCYCLOPEDIE)
+========================== */
+
+.navbar {
+  width: 280px;
+  height: 100%;
+  padding: 1.25rem 0.75rem;
+  box-sizing: border-box;
+
+  background: rgba(14, 14, 20, 0.55);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  width: 100%;
+}
+
+.menu-link,
+.menu-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+
+  color: #F0EDE6;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  font: inherit;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.menu-link:hover,
+.menu-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* État ouvert du bouton parent */
+.menu-button[aria-expanded="true"] {
+  background: rgba(232, 162, 69, 0.15);
+  border-color: rgba(232, 162, 69, 0.4);
+  color: #FFD28B;
+}
+
+.submenu {
+  list-style: none;
+  margin: 0.35rem 0 0.5rem 0.75rem;
+  padding: 0.25rem 0 0.25rem 0.75rem;
+  border-left: 2px solid rgba(232, 162, 69, 0.45);
+}
+
+.submenu-item a {
+  display: block;
+  padding: 0.55rem 0.85rem;
+  margin-bottom: 0.15rem;
+
+  color: rgba(240, 237, 230, 0.8);
+  font-size: 0.92rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.submenu-item a:hover {
+  background: rgba(232, 162, 69, 0.2);
+  color: #FFD28B;
+  transform: translateX(3px);
+}

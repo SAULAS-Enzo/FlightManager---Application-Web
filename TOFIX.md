@@ -1,2 +1,2 @@
-- le footer qui ne touche pas le bord du bas de la fenêtre
-- diminuer la hauteur du footer
+- Affiche du contenu de la page comme une carte. Titre au centre, fond et bordure.
+- L'affiche du contenu de la page bouge en fonction du sous menu sélectionné
