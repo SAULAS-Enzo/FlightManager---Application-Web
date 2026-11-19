@@ -1,0 +1,15 @@
+/* ==========================
+   LAYOUT ENCYCLOPEDIE
+========================== */
+
+main.encyclopedie-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  padding: 0;
+  gap: 0;
+  width: 100%;
+  min-height: 100%;
+}
