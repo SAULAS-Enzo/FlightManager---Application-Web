@@ -6,8 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 
+/***
+ * Représente un utilisateur de l'pplication dans la base de données
+ */
 @Entity
-@Table(name = "UTILISATEUR")
+@Table(name = "utilisateur")
 public class Utilisateur 
 {
     @Id
