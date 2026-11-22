@@ -6,14 +6,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import fr.univ.orleans.saulas.flightmanager.dao.UtilisateurDao;
 import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
-import fr.univ.orleans.saulas.flightmanager.repository.UtilisateurRepository;
 
 @Service 
 public class UtilisateurService implements UserDetailsService {
-    private final UtilisateurRepository repository;
+    private final UtilisateurDao repository;
 
-    public UtilisateurService(UtilisateurRepository repository) {
+    public UtilisateurService(UtilisateurDao repository) {
         this.repository = repository;
     }
 
