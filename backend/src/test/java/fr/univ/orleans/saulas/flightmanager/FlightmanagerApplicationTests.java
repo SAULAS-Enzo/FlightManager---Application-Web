@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import java.util.UUID;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -44,6 +45,27 @@ class FlightmanagerApplicationTests {
 				.content("{\"nomUtilisateur\":\"nouveau\",\"adresseMail\":\"nouveau@example.com\"}"))
 				.andExpect(status().isBadRequest())
 				.andExpect(jsonPath("$.message").value("Tous les champs sont obligatoires."));
+	}
+
+	@Test
+	void registrationThenJsonLoginSucceeds() throws Exception {
+		String suffix = UUID.randomUUID().toString();
+		String username = "utilisateur-" + suffix;
+		String email = "connexion-" + suffix + "@example.com";
+
+		mockMvc.perform(post("/req/inscription")
+				.contentType("application/json")
+				.content("{\"nomUtilisateur\":\"" + username + "\","
+						+ "\"adresseMail\":\"" + email + "\","
+						+ "\"motDePasse\":\"0000\"}"))
+				.andExpect(status().isCreated());
+
+		mockMvc.perform(post("/req/connexion")
+				.contentType("application/json")
+				.content("{\"nomUtilisateur\":\"" + username + "\","
+						+ "\"motDePasse\":\"0000\"}"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.message").value("Connexion réussie."));
 	}
 
 	@Test
