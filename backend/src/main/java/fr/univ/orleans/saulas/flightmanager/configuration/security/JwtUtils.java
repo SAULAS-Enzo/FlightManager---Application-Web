@@ -1,4 +1,4 @@
-package fr.univ.orleans.saulas.flightmanager.configuration;
+package fr.univ.orleans.saulas.flightmanager.configuration.security;
 
 import java.security.Key;
 import java.util.Date;
@@ -66,7 +66,7 @@ public class JwtUtils
         return extraireClaim(token, Claims::getExpiration);
     }
 
-    private String extraireNomUtilisateur(String token) 
+    public String extraireNomUtilisateur(String token) 
     {
         return extraireClaim(token, Claims::getSubject);
     }

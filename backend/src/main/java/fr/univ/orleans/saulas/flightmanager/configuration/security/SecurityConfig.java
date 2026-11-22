@@ -1,4 +1,4 @@
-package fr.univ.orleans.saulas.flightmanager.security;
+package fr.univ.orleans.saulas.flightmanager.configuration.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,25 +13,26 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import fr.univ.orleans.saulas.flightmanager.service.impl.UtilisateurService;
+import fr.univ.orleans.saulas.flightmanager.filter.JwtFilter;
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
     private final UtilisateurService service;
-
-    public SecurityConfig(UtilisateurService service) {
-        this.service = service;
-    }
+    private final JwtFilter jwtFilter;
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
+    AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(service);
         provider.setPasswordEncoder(passwordEncoder);
@@ -39,12 +40,12 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+    AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, AuthenticationProvider authenticationProvider) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, AuthenticationProvider authenticationProvider) throws Exception {
         return httpSecurity
             .csrf(AbstractHttpConfigurer::disable)
             .authenticationProvider(authenticationProvider)
@@ -60,8 +61,10 @@ public class SecurityConfig {
                     "/images/**",
                     "/encyclopedie/**"
                 ).permitAll();
-                registry.anyRequest().authenticated();
+                registry.anyRequest()
+                    .authenticated();
             })
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
     }
 }
