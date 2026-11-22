@@ -2,8 +2,8 @@ package fr.univ.orleans.saulas.flightmanager.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.univ.orleans.saulas.flightmanager.dao.UtilisateurDao;
 import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
-import fr.univ.orleans.saulas.flightmanager.repository.UtilisateurRepository;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.http.HttpStatus;
@@ -19,10 +19,10 @@ import java.util.regex.Pattern;
 public class RegistrationController {
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
 
-    private final UtilisateurRepository repository;
+    private final UtilisateurDao repository;
     private final PasswordEncoder passwordEncoder;
 
-    public RegistrationController(UtilisateurRepository repository, PasswordEncoder passwordEncoder) {
+    public RegistrationController(UtilisateurDao repository, PasswordEncoder passwordEncoder) {
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
     }
