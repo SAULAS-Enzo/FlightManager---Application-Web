@@ -1,20 +1,28 @@
 package fr.univ.orleans.saulas.flightmanager.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
 
 /***
  * Représente un utilisateur de l'pplication dans la base de données
  */
 @Entity
+@Getter @Setter 
 @Table(name = "utilisateur")
 public class Utilisateur 
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter(AccessLevel.NONE)
     private Long id;
 
     private String nomUtilisateur;
@@ -23,37 +31,17 @@ public class Utilisateur
 
     private String motDePasse;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "auteur")
+    private List<Fiche> fiches;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getNomUtilisateur() {
-        return nomUtilisateur;
+    public void ajouterFiche(Fiche fiche)
+    {
+        this.fiches.add(fiche);
     }
-
-    public void setNomUtilisateur(String nomUtilisateur) {
-        this.nomUtilisateur = nomUtilisateur;
+ 
+    public void supprimerFicher(Fiche fiche)
+    {
+        this.fiches.remove(fiche);
     }
-
-    public String getAdresseMail() {
-        return adresseMail;
-    }
-
-    public void setAdresseMail(String adresseMail) {
-        this.adresseMail = adresseMail;
-    }
-
-    public String getMotDePasse() {
-        return motDePasse;
-    }
-
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
-    }
-
-    
 }
