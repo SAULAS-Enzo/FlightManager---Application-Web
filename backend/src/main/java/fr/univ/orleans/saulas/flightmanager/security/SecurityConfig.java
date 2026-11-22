@@ -12,9 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-import org.springframework.security.web.SecurityFilterChain;
 
-import fr.univ.orleans.saulas.flightmanager.service.UtilisateurService;
+import fr.univ.orleans.saulas.flightmanager.service.impl.UtilisateurService;
+
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
