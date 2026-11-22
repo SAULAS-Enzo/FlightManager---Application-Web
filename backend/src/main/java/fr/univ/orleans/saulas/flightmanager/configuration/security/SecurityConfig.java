@@ -12,8 +12,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import fr.univ.orleans.saulas.flightmanager.configuration.filter.JwtFilter;
 import fr.univ.orleans.saulas.flightmanager.service.impl.UtilisateurService;
-import fr.univ.orleans.saulas.flightmanager.filter.JwtFilter;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.web.SecurityFilterChain;
