@@ -11,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -18,6 +19,7 @@ import lombok.Setter;
  */
 @Entity 
 @Getter @Setter 
+@NoArgsConstructor
 public class Fiche {
     
     @Id

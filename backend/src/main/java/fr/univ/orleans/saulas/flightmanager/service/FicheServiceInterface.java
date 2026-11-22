@@ -1,9 +1,9 @@
 package fr.univ.orleans.saulas.flightmanager.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import fr.univ.orleans.saulas.flightmanager.model.Fiche;
-import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
 
 /**
  * Service pour les fiches
@@ -11,13 +11,13 @@ import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
 public interface FicheServiceInterface 
 {
     /**
-     * @param utilisateur
+     * @param id l'identifiant de l'utilisateur
      * @return Toutes les fiches appartenant à l'utilisateur
      */
-    public Optional<Fiche> getFichesUtilisateur(Utilisateur utilisateur);
+    public Optional<List<Fiche>> getFichesUtilisateur(Long id);
 
     /**
      * @return la liste de toutes les fiches publiques
      */
-    public Optional<Fiche> getFichesPubliques();
+    public List<Fiche> getFichesPubliques();
 }
