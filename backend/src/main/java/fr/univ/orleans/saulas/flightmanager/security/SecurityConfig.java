@@ -72,7 +72,8 @@ public class SecurityConfig {
                     "/req/inscription",
                     "/css/**",
                     "/js/**",
-                    "/images/**"
+                    "/images/**",
+                    "/encyclopedie/**"
                 ).permitAll();
                 registry.anyRequest().authenticated();
             })
