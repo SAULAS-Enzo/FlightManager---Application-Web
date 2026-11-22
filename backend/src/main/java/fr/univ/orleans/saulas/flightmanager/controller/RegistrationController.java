@@ -19,11 +19,11 @@ import java.util.regex.Pattern;
 public class RegistrationController {
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
 
-    private final UtilisateurDao repository;
+    private final UtilisateurDao dao;
     private final PasswordEncoder passwordEncoder;
 
-    public RegistrationController(UtilisateurDao repository, PasswordEncoder passwordEncoder) {
-        this.repository = repository;
+    public RegistrationController(UtilisateurDao dao, PasswordEncoder passwordEncoder) {
+        this.dao = dao;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -39,10 +39,10 @@ public class RegistrationController {
         if (!EMAIL_PATTERN.matcher(adresseMail).matches()) {
             return error(HttpStatus.BAD_REQUEST, "L'adresse email n'est pas valide.");
         }
-        if (repository.findByNomUtilisateur(nomUtilisateur).isPresent()) {
+        if (dao.findByNomUtilisateur(nomUtilisateur).isPresent()) {
             return error(HttpStatus.CONFLICT, "Ce nom d'utilisateur est déjà utilisé.");
         }
-        if (repository.findByAdresseMail(adresseMail).isPresent()) {
+        if (dao.findByAdresseMail(adresseMail).isPresent()) {
             return error(HttpStatus.CONFLICT, "Cette adresse email est déjà utilisée.");
         }
 
@@ -50,7 +50,7 @@ public class RegistrationController {
         utilisateur.setNomUtilisateur(nomUtilisateur);
         utilisateur.setAdresseMail(adresseMail);
         utilisateur.setMotDePasse(passwordEncoder.encode(request.motDePasse()));
-        repository.save(utilisateur);
+        dao.save(utilisateur);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of(
                 "nomUtilisateur", nomUtilisateur,
