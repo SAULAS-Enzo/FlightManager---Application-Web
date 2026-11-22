@@ -1,4 +1,4 @@
-package fr.univ.orleans.saulas.flightmanager.service;
+package fr.univ.orleans.saulas.flightmanager.service.impl;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,16 +10,20 @@ import fr.univ.orleans.saulas.flightmanager.dao.UtilisateurDao;
 import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
 
 @Service 
-public class UtilisateurService implements UserDetailsService {
-    private final UtilisateurDao repository;
+public class UtilisateurService implements UserDetailsService  
+{
+    private final UtilisateurDao dao;
 
-    public UtilisateurService(UtilisateurDao repository) {
-        this.repository = repository;
+    public UtilisateurService(UtilisateurDao dao) 
+    {
+        this.dao = dao;
     }
 
     @Override
-    public UserDetails loadUserByUsername(String nom) throws UsernameNotFoundException {
-        Utilisateur utilisateur = repository.findByNomUtilisateur(nom)
+    public UserDetails loadUserByUsername(String nom) 
+        throws UsernameNotFoundException 
+    {
+        Utilisateur utilisateur = dao.findByNomUtilisateur(nom)
                 .orElseThrow(() -> new UsernameNotFoundException("Utilisateur introuvable."));
 
         return User.builder()
