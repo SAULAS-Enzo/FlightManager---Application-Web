@@ -5,12 +5,22 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.univ.orleans.saulas.flightmanager.dao.UtilisateurDao;
 import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -21,10 +31,52 @@ public class RegistrationController {
 
     private final UtilisateurDao dao;
     private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authenticationManager;
 
-    public RegistrationController(UtilisateurDao dao, PasswordEncoder passwordEncoder) {
+    public RegistrationController(UtilisateurDao dao, PasswordEncoder passwordEncoder,
+                                  AuthenticationManager authenticationManager) {
         this.dao = dao;
         this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
+    }
+
+    @PostMapping(value = "/req/connexion", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, String>> connecter(@RequestBody LoginRequest request,
+                                                          HttpServletRequest httpRequest) {
+        return authentifier(request.nomUtilisateur(), request.motDePasse(), httpRequest);
+    }
+
+    @PostMapping(value = "/req/connexion", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public ResponseEntity<Map<String, String>> connecterParFormulaire(
+            @RequestParam String nomUtilisateur,
+            @RequestParam String motDePasse,
+            HttpServletRequest httpRequest) {
+        return authentifier(nomUtilisateur, motDePasse, httpRequest);
+    }
+
+    private ResponseEntity<Map<String, String>> authentifier(String nomUtilisateur, String motDePasse,
+                                                              HttpServletRequest httpRequest) {
+        if (!StringUtils.hasText(nomUtilisateur) || !StringUtils.hasText(motDePasse)) {
+            return erreurConnexion();
+        }
+
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(nomUtilisateur.trim(), motDePasse));
+            SecurityContext context = SecurityContextHolder.createEmptyContext();
+            context.setAuthentication(authentication);
+            SecurityContextHolder.setContext(context);
+            httpRequest.getSession(true).setAttribute(
+                    HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, context);
+            return ResponseEntity.ok(Map.of("message", "Connexion réussie."));
+        } catch (AuthenticationException exception) {
+            return erreurConnexion();
+        }
+    }
+
+    private ResponseEntity<Map<String, String>> erreurConnexion() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                Map.of("message", "Nom d'utilisateur ou mot de passe invalide."));
     }
 
     @PostMapping(value = "/req/inscription", consumes = "application/json", produces = "application/json")
@@ -63,4 +115,5 @@ public class RegistrationController {
     }
 
     public record RegistrationRequest(String nomUtilisateur, String adresseMail, String motDePasse) {}
+    public record LoginRequest(String nomUtilisateur, String motDePasse) {}
 }

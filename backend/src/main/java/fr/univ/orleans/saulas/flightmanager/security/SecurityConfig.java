@@ -4,14 +4,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
 import fr.univ.orleans.saulas.flightmanager.service.impl.UtilisateurService;
 
@@ -40,30 +39,16 @@ public class SecurityConfig {
     }
 
     @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+        return configuration.getAuthenticationManager();
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, AuthenticationProvider authenticationProvider) throws Exception {
         return httpSecurity
             .csrf(AbstractHttpConfigurer::disable)
             .authenticationProvider(authenticationProvider)
-            .formLogin(httpForm -> {
-                httpForm
-                    .loginPage("/connexion")
-                    .loginProcessingUrl("/req/connexion")
-                    .usernameParameter("nomUtilisateur")
-                    .passwordParameter("motDePasse")
-                    .successHandler((request, response, authentication) -> {
-                        response.setStatus(HttpStatus.OK.value());
-                        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-                        response.getWriter().write("{\"message\":\"Connexion réussie.\"}");
-                    })
-                    .failureHandler((request, response, exception) -> {
-                        response.setStatus(HttpStatus.UNAUTHORIZED.value());
-                        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-                        response.getWriter().write("{\"message\":\"Nom d'utilisateur ou mot de passe invalide.\"}");
-                    })
-                    .permitAll();
-            })
-            .exceptionHandling(exception -> exception
-                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
+            .formLogin(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(registry -> {
                 registry.requestMatchers(
                     "/connexion",
