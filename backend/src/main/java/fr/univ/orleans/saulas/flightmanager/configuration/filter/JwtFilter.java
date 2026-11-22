@@ -1,4 +1,4 @@
-package fr.univ.orleans.saulas.flightmanager.filter;
+package fr.univ.orleans.saulas.flightmanager.configuration.filter;
 
 import java.io.IOException;
 
