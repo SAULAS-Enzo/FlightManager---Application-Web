@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.config.http.SessionCreationPolicy;
 
 import fr.univ.orleans.saulas.flightmanager.configuration.filter.JwtFilter;
 import fr.univ.orleans.saulas.flightmanager.service.impl.UtilisateurService;
@@ -64,6 +65,7 @@ public class SecurityConfig {
                 registry.anyRequest()
                     .authenticated();
             })
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
     }

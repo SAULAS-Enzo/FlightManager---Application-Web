@@ -11,10 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.univ.orleans.saulas.flightmanager.configuration.security.JwtUtils;
 import fr.univ.orleans.saulas.flightmanager.dao.UtilisateurDao;
 import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -49,21 +45,18 @@ public class RegistrationController {
     }
 
     @PostMapping(value = "/req/connexion", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> connecter(@RequestBody LoginRequest request,
-                                       HttpServletRequest httpRequest) {
-        return authentifier(request.nomUtilisateur(), request.motDePasse(), httpRequest);
+    public ResponseEntity<?> connecter(@RequestBody LoginRequest request) {
+        return authentifier(request.nomUtilisateur(), request.motDePasse());
     }
 
     @PostMapping("/req/connexion")
     public ResponseEntity<?> connecterParFormulaire(@RequestParam String nomUtilisateur,
-                                                     @RequestParam String motDePasse,
-                                                     HttpServletRequest httpRequest) {
-        return authentifier(nomUtilisateur, motDePasse, httpRequest);
+                                                     @RequestParam String motDePasse) {
+        return authentifier(nomUtilisateur, motDePasse);
     }
 
     private ResponseEntity<?> authentifier(String nomUtilisateur,
-                                           String motDePasse,
-                                           HttpServletRequest httpRequest) {
+                                           String motDePasse) {
         if (!StringUtils.hasText(nomUtilisateur) || !StringUtils.hasText(motDePasse)) {
             return erreurConnexion();
         }
@@ -71,15 +64,7 @@ public class RegistrationController {
         String usernameClean = nomUtilisateur.trim();
 
         try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(usernameClean, motDePasse));
-
-            SecurityContext context = SecurityContextHolder.createEmptyContext();
-            context.setAuthentication(authentication);
-            SecurityContextHolder.setContext(context);
-            httpRequest.getSession(true).setAttribute(
-                    HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,
-                    context);
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(usernameClean, motDePasse));
 
             Map<String, Object> result = new HashMap<>();
             result.put("token", jwtUtils.genereToken(usernameClean));

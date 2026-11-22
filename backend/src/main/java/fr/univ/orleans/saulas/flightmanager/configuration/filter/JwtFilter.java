@@ -35,7 +35,11 @@ public class JwtFilter extends OncePerRequestFilter
 
         if (autHeader != null && autHeader.startsWith("Bearer ")) {
             jwt = autHeader.substring(7);
-            nomUtilisateur = jwtUtils.extraireNomUtilisateur(jwt);
+            try {
+                nomUtilisateur = jwtUtils.extraireNomUtilisateur(jwt);
+            } catch (Exception e) {
+                logger.warn("Token JWT invalide ou expiré : " + e.getMessage());
+            }
         }
 
         if (nomUtilisateur != null && SecurityContextHolder.getContext().getAuthentication() == null) {
