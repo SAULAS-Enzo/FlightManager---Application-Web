@@ -1,14 +1,12 @@
-package fr.univ.orleans.saulas.flightmanager.repository;
+package fr.univ.orleans.saulas.flightmanager.dao;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import fr.univ.orleans.saulas.flightmanager.model.Utilisateur;
 
-@Repository 
-public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>
+public interface UtilisateurDao extends JpaRepository<Utilisateur, Long>
 {
     Optional<Utilisateur> findByNomUtilisateur(String nom);
     Optional<Utilisateur> findByAdresseMail(String adresseMail);
