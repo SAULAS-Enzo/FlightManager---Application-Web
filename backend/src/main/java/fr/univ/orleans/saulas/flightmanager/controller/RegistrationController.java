@@ -46,7 +46,7 @@ public class RegistrationController {
         return authentifier(request.nomUtilisateur(), request.motDePasse(), httpRequest);
     }
 
-    @PostMapping(value = "/req/connexion", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping("/req/connexion")
     public ResponseEntity<Map<String, String>> connecterParFormulaire(
             @RequestParam String nomUtilisateur,
             @RequestParam String motDePasse,
