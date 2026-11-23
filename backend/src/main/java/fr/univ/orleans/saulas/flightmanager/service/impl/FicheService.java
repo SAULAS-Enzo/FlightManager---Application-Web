@@ -1,6 +1,5 @@
 package fr.univ.orleans.saulas.flightmanager.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,11 +31,31 @@ public class FicheService implements FicheServiceInterface
         return dao.findByPubliqueTrue();
     }
 
+    @Override
+    public void createFiche(Fiche fiche) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createFiche'");
+    }
+
+    @Override
+    public void deleteFiche(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteFiche'");
+    }
+
+    @Override
+    public void updateFiche(Long id, String nouveauTitre, String nouvelleDescription, String nouveauLogoUrl,
+            String nouveauCheminPDF, boolean changerVisibilite) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateFiche'");
+    }
+
+
     public static FicheService getInstance(FicheDao ficheDao, UtilisateurDao utilisateurDao) {
         if (instance == null) {
             instance = new FicheService(ficheDao, utilisateurDao);
         }
         return instance;
-    } 
+    }
     
 }

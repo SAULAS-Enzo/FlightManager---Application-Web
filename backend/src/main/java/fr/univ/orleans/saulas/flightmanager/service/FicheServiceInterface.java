@@ -20,4 +20,20 @@ public interface FicheServiceInterface
      * @return la liste de toutes les fiches publiques
      */
     public List<Fiche> getFichesPubliques();
+
+    /**
+     * @param fiche Les détails de la fiche à créer
+     */
+    public void createFiche(Fiche fiche);
+
+    /**
+     * @param id l'identifiant de la fiche à supprimer
+     */
+    public void deleteFiche(Long id);
+
+    /**
+     * @param id l'identifiant de la fiche à modifier
+     * @param param les paramètres de la fiche à changer
+     */
+    public void updateFiche(Long id, String nouveauTitre, String nouvelleDescription, String nouveauLogoUrl, String nouveauCheminPDF, boolean changerVisibilite);
 }
