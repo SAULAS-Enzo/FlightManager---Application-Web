@@ -20,4 +20,5 @@ public interface FicheDao extends JpaRepository<Fiche, Long>
      * @return la liste des fiches lui appartenant
      */
     List<Fiche> findByAuteurId(Long id);
+
 }
