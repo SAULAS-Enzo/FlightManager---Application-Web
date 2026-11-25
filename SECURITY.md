@@ -15,5 +15,3 @@ Si vous découvrez une faille de sécurité dans **FlightManager**, merci de ne 
 Pour la signaler de manière confidentielle :
 1. Envoyez un e-mail à **enzojeansau@gmail.com** avec l'objet `[Sécurité] FlightManager - Description courte`.
 2. Décrivez le problème de manière détaillée ainsi que les étapes permettant de le reproduire.
-
-Vous recevrez un accusé de réception sous **48 à 72 heures** et serez informé de l'avancement du correctif.
