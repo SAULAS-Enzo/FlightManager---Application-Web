@@ -11,7 +11,7 @@
     
     <groupId>fr.univ.orleans.saulas</groupId>
     <artifactId>flightmanager</artifactId>
-    <version>2026.11.15-SNAPSHOT</version>
+    <version>2026.11.23-SNAPSHOT</version>
     <name>FlightManager</name>
     <description>Application Web Flight Manager pour pilotes IVAO (BUT Informatique)</description>
 
@@ -82,6 +82,26 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+        <!-- JWT-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
 
         <!-- Génère automatiquement les getters, les setters et les constructeurs-->
         <dependency>
