@@ -1,21 +1,12 @@
-MIT License
+Licence Libre — Projet Éducatif (équivalent MIT)
 
 Copyright (c) 2026 Enzo Saulas
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Ce logiciel (FlightManager) est développé dans un cadre étudiant et éducatif, et mis à disposition gratuitement en open source.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+L'autorisation est accordée, gratuitement, à toute personne obtenant une copie de ce logiciel et des fichiers de documentation associés (le « Logiciel »), de l'utiliser, le copier, le modifier, le fusionner, le publier ou le distribuer à des fins éducatives, personnelles ou de recherche, sous réserve de respecter la condition suivante :
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+La mention de droit d'auteur ci-dessus (Copyright (c) 2026 Enzo Saulas) ainsi que le présent avis d'autorisation doivent être inclus dans toutes les copies ou parties substantielles du Logiciel.
+
+AVERTISSEMENT ET LIMITATION DE RESPONSABILITÉ :
+LE LOGICIEL EST FOURNI « TEL QUEL », SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE. IL EST STRICTEMENT DESTINÉ À LA SIMULATION AÉRONAUTIQUE ET À UN USAGE ÉDUCATIF, ET NE DOIT EN AUCUN CAS ÊTRE UTILISÉ POUR LA NAVIGATION AÉRIENNE RÉELLE. EN AUCUN CAS L'AUTEUR NE POURRA ÊTRE TENU RESPONSABLE DE TOUT DOMMAGE OU PERTE RÉSULTANT DE L'UTILISATION DE CE LOGICIEL.
