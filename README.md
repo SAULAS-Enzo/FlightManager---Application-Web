@@ -18,21 +18,6 @@
 </div>
 
 ---
-
-## Architecture Technique
-
-Le schéma ci-dessous illustre le fonctionnement global et les flux de données de l'application :
-
-```mermaid
-graph LR
-    User([👨‍✈️ Pilote IVAO]) -->|Navigation Web| Front[⚛️ Front-End React<br/>Vite • Port 5173]
-    Front -->|Requêtes HTTP / JSON| Back{🍃 API REST Spring Boot<br/>Java 21 • Port 8080}
-    Back -->|Spring Data JDBC| DB[(🗄️ Base de données<br/>MariaDB / MySQL)]
-    Back -.->|Documentation| Swagger[📄 Swagger UI<br/>/swagger-ui.html]
-    Back -.->|Données Aéronautiques| IVAO[🌐 Réseau IVAO]
-
----
-
 ## Stack Technique
  - Front-End : React.js, HTML5, CSS3, JavaScript ES6+ (Vite / NPM)
  - Back-End : Java 21, Spring Boot, Spring Data JDBC, OpenAPI / Swagger (Maven)
